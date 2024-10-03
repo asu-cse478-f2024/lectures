@@ -200,14 +200,10 @@
             const slices = lineData.columns.slice(1).map(function(id) {
                 return {
                         id: id,
-                        region: 'BYENG',
-                        country:'usa',
                         items: lineData.map(function(d) {
                             return {
                                 date: d.date,
-                                val: d[id],
-                                'Fertility Rate': 'something',
-                                'Birth Rate': 'something else'
+                                val: d[id]
                             }
                         })
                        };
@@ -215,21 +211,6 @@
             console.log(slices);
             // // For an alternative example of CSV formatting, 
             // // see this example: https://bl.ocks.org/d3noob/7bf95c7ac092db2fe31a979b926b91b8
-            
-
-            // dataDivie = [
-            //     {   
-            //         name: 'Canada',
-            //         region: 'North America',
-            //         items: [
-            //         {Country: 'canada', 'year', xxx, 'attriubte1':xxx, ... }
-            //         ]},
-            //     [],
-            //     [],
-            // ]
-            
-
-            // tempData = filter - only keep countries in dataDivide that match the selected regions
 
             // 14. In contrast to the single line chart, 
             //     when setting the yScale's max valule, 
@@ -267,6 +248,7 @@
                                     .data(slices)
                                     .enter()
                                     .append('path')
+                                    .attr('id', d => `${d.id}_multiline`)
                                     .style('fill','none')
                                     .style('stroke',d => colorScale(d.id))
                                     .style('stroke-width','1')
@@ -300,6 +282,8 @@
             // the color scale, we can do it by selecting the line and circles
             svgSingle.select('.singleLine')
                         .style('stroke',colorScale('Finance'));
+                        console.log(colorScale('Finance'));
+
             svgSingle.selectAll('.singleCircles')
                         .style('fill',colorScale('Finance'));
         }

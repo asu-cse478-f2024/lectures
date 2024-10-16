@@ -383,7 +383,7 @@
                     const data = updateStates();
 
                     svg4.selectAll('text')
-                        .data(data)
+                        .data(data, d => d.abbrev)
                         // AB didn't previously exist > "enter bucket"
                         // MB previously there, still there > "update bucket"
                         // 

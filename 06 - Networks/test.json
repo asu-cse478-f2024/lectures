@@ -1,0 +1,16 @@
+{
+    "$schema": "schema/sirius",
+    "description": "A rendering of a skull with transfer funtion widget enabled.",
+    "data": "./data/skull.DICOM",
+    "positionalLight": { "type": "SceneLight", "params": "SceneLightDefault", 
+                          "x": 300, "y": 50, "z": -50},
+    "transferFunction": { "type": "default", "lookupTable": "default", 
+                          "colorMap": "erdc_rainbow_bright",
+                          "piecewiseFunction": "default", "widget": true },
+    "cuttingPlane": { "type": "clipClosed", "origin":"center", 
+                     "normal": [1.0, 0.0, 0.0], "widget": true},
+    "camera": { "location": "cameraDefaultPosition", "moveable": true } 
+  }
+  
+
+
